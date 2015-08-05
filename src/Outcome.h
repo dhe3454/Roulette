@@ -12,14 +12,33 @@
 
 class Outcome {
 
-	std::string outcome;
-	int paidOdds;
+	std::string name;
+	int odds;
 public:
 	Outcome();
+	Outcome(std::string nameArgs, int oddsArgs);
 	virtual ~Outcome();
 
-	std::string getOutcome() { return outcome; }
-	int getPaidOdds() { return paidOdds; }
+	std::string getName() { return name; }
+	int getOdds() { return odds; }
+
+	int winAmount(int amount){
+		return odds * amount;
+	}
+
+	bool isEqual( Outcome lhs, Outcome rhs){
+		if(lhs.name == rhs.name)
+			return true;
+		else
+			return false;
+	}
+
+	std::string toString(){
+
+		return name + " (" + std::to_string(odds) + ":1)";
+	}
 };
+
+
 
 #endif /* OUTCOME_H_ */
