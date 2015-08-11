@@ -26,17 +26,13 @@ public:
 		return odds * amount;
 	}
 
-	bool isEqual( Outcome lhs, Outcome rhs){
-		if(lhs.name == rhs.name)
+	bool isEqual(Outcome rhs){
+		if(this->name == rhs.name)
 			return true;
 		else
 			return false;
 	}
 
-	std::string toString(){
-
-		return name + " (" + std::to_string(odds) + ":1)";
-	}
 };
 
 
