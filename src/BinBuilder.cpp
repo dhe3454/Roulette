@@ -15,6 +15,7 @@ BinBuilder::BinBuilder() {
 BinBuilder::BinBuilder(Wheel& wheel) {
 	// TODO Auto-generated constructor stub
 	generateStraightBets(wheel);
+	generateSplitBets(wheel);
 }
 
 BinBuilder::~BinBuilder() {
@@ -40,4 +41,34 @@ void BinBuilder::generateStraightBets(Wheel& wheel){
 
 	}
 
+}
+
+void BinBuilder::generateSplitBets(Wheel& wheel){
+
+	std::string name;
+	for(unsigned int i = 1; i < 37; i++){
+		//If not third column
+		if( i % 3 != 0  ){
+			//Generate Bets for Col 1 and 2
+			name = "Split " + intToString(i) + "-" + intToString(i+1);
+			wheel.addOutcome(i, Outcome( name , 17));
+			wheel.addOutcome(i+1, Outcome( name , 17));
+
+			if( i < 34 ){
+				name = "Split " + intToString(i) + "-" + intToString(i+3);
+				wheel.addOutcome(i, Outcome(name, 17));
+				wheel.addOutcome(i+3, Outcome(name, 17));
+			}
+
+		}
+		else{ //If third column
+			//Generate U-D Bets for Col 3
+			if( i != 36){
+				name = "Split " + intToString(i) + "-" + intToString(i+3);
+				wheel.addOutcome(i, Outcome(name, 17));
+				wheel.addOutcome(i+3, Outcome(name, 17));
+			}
+
+		}
+	}
 }
