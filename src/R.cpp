@@ -6,29 +6,28 @@
  */
 #include <iostream>
 #include <string>
-#include "Bin.h"
+#include "BinBuilder.h"
 
 
 using namespace std;
 
 int main(){
-	Outcome test = Outcome("Test Outcome", 5);
-	Outcome test2 = Outcome("Test Outcome", 3);
-	Outcome test3 = Outcome("Balloons", 3);
 
-	vector<Outcome> testList;
-	testList.push_back(test);
-	testList.push_back(test2);
-	testList.push_back(test3);
+	Wheel w;
+	BinBuilder b(w);
 
-	Outcome test4 = Outcome("Final", 50);
+	vector<Outcome> test;
 
-	Bin testBin = Bin(testList);
+	for(unsigned int i = 0; i < 38; ++i){
+		test = w.getBin(i).getOutcomes();
+		cout << "Bin #:" << i << endl;
+		cout << "Bin Size: " << test.size() << endl;
 
-	testBin.printBin();
-	testBin.addOutcome(test4);
-	cout << endl;
-	testBin.printBin();
+		for(unsigned int j = 0; j < test.size(); j++){
+			cout << "Outcome #:" << j+1 << " : " << test[j].getName() << " Odds:: " << test[j].getOdds() << endl;
+		}
+	}
+
 	return 0;
 
 

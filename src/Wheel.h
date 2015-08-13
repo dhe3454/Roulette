@@ -21,7 +21,7 @@ public:
 	virtual ~Wheel();
 
 	Bin getBin(int choice){
-		if( choice < 37){
+		if( choice <= 37){
 			return bins[choice];
 		}
 		else
@@ -30,7 +30,7 @@ public:
 	}
 
 	void setBin(int binNum, Bin bin){
-		if( binNum < 37)
+		if( binNum <= 37)
 			bins[binNum] = bin;
 	}
 

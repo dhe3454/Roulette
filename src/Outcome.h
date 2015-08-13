@@ -6,6 +6,7 @@
  */
 #include <iostream>
 #include <string>
+#include <sstream>
 
 #ifndef OUTCOME_H_
 #define OUTCOME_H_
@@ -32,6 +33,7 @@ public:
 		else
 			return false;
 	}
+
 
 };
 
