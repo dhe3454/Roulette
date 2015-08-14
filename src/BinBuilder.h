@@ -16,6 +16,8 @@ public:
 	BinBuilder(Wheel& wheel);
 	virtual ~BinBuilder();
 
+	void setColors(Wheel& wheel);
+
 	void generateStraightBets(Wheel& wheel);
 	void generateSplitBets(Wheel& wheel);
 	void generateStreetBets(Wheel& wheel);

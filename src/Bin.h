@@ -17,6 +17,7 @@
 
 class Bin {
 	std::vector<Outcome> outcomes;
+	std::string color = "green";
 public:
 	Bin();
 	Bin( std::vector<Outcome> outcomeList);
@@ -28,6 +29,14 @@ public:
 
 	void addOutcome( Outcome addition ){
 		outcomes.push_back(addition);
+	}
+
+	void setColor( std::string newColor ){
+		color = newColor;
+	}
+
+	std::string getColor(){
+		return color;
 	}
 
 	void printBin();

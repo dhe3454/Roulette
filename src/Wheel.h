@@ -20,12 +20,8 @@ public:
 	Wheel();
 	virtual ~Wheel();
 
-	Bin getBin(int choice){
-		if( choice <= 37){
-			return bins[choice];
-		}
-		else
-			return Bin();
+	Bin& getBin(int choice){
+		return bins[choice];
 
 	}
 
